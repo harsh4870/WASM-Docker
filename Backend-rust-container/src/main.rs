@@ -88,14 +88,14 @@ async fn router(req: Request<Body>) -> Result<Response<Body>, hyper::Error> {
                 Body::from("Hello world from Rust running with Wasm! Send POST data to /echo to have it echoed back to you")
             )
         ),
-        "/index" => Ok(
-            Response::new(
-                Body::from(
-                    read("/files/hello_world/index.html")
-                    .expect("Should be able to read index.html")
-                )
-            )
-        ),
+        // "/index" => Ok(
+        //     Response::new(
+        //         Body::from(
+        //             read("/files/hello_world/index.html")
+        //             .expect("Should be able to read index.html")
+        //         )
+        //     )
+        // ),
         "/echo" => Ok(Response::new(req.into_body())),
         _ => Ok(
             Response::builder()
